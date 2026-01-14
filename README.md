@@ -31,7 +31,7 @@ A full-stack weather information web application built with React, Node.js, and 
    npm install
    npm start
    ```
-   The API server will start on http://localhost:5000
+   The API server will start on http://localhost:5002
 
 2. **Install and start the frontend (in a new terminal):**
    ```bash
