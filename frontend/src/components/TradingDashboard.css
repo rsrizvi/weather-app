@@ -1,0 +1,1019 @@
+.trading-dashboard {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.trading-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-title h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.header-location {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Loading State */
+.trading-loading {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.loading-subtext {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-top: 8px;
+}
+
+/* Error State */
+.trading-error {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 16px;
+}
+
+.error-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.retry-btn {
+    margin-top: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.retry-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Conditions Summary */
+.conditions-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.condition-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.condition-icon {
+    font-size: 32px;
+}
+
+.condition-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.condition-label {
+    font-size: 12px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.condition-value {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.condition-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+    width: fit-content;
+}
+
+.condition-badge.warm {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+.condition-badge.cool {
+    background: rgba(59, 130, 246, 0.3);
+}
+
+/* Tab Navigation */
+.trading-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+/* Period Selector */
+.period-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.period-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.period-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.period-btn.active {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-color: transparent;
+    color: white;
+}
+
+/* Synopsis Content */
+.synopsis-content {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.synopsis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.synopsis-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.confidence-badge {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.confidence-high {
+    background: rgba(34, 197, 94, 0.3);
+    color: #86efac;
+}
+
+.confidence-medium {
+    background: rgba(234, 179, 8, 0.3);
+    color: #fde047;
+}
+
+.confidence-low {
+    background: rgba(148, 163, 184, 0.3);
+    color: #cbd5e1;
+}
+
+.confidence-seasonal {
+    background: rgba(168, 85, 247, 0.3);
+    color: #d8b4fe;
+}
+
+.synopsis-summary {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.synopsis-details {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 20px;
+}
+
+.outlook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.outlook-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.outlook-label {
+    font-size: 12px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.outlook-value {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.outlook-value.above {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.outlook-value.below {
+    background: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+}
+
+.outlook-value.normal {
+    background: rgba(34, 197, 94, 0.2);
+    color: #86efac;
+}
+
+/* Data Points Grid */
+.data-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-point {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.data-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 6px;
+}
+
+.data-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+.data-value.positive {
+    color: #fca5a5;
+}
+
+.data-value.negative {
+    color: #93c5fd;
+}
+
+/* Trades Section */
+.trades-intro {
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    border-left: 4px solid #3b82f6;
+}
+
+.trades-intro p {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.trades-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.trade-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trade-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.trade-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.trade-identity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.trade-action {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.action-buy {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+.action-accumulate {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.action-sell {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.action-hold {
+    background: rgba(234, 179, 8, 0.3);
+    color: #fde047;
+}
+
+.action-watch {
+    background: rgba(148, 163, 184, 0.3);
+    color: #cbd5e1;
+}
+
+.trade-ticker {
+    font-size: 18px;
+    font-weight: 700;
+    color: #60a5fa;
+}
+
+.trade-name {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.trade-sector-region {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.trade-sector {
+    font-size: 12px;
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.trade-region {
+    font-size: 11px;
+    background: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.trade-exchange {
+    font-size: 10px;
+    background: rgba(148, 163, 184, 0.2);
+    color: #94a3b8;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-left: 4px;
+}
+
+.trade-instrument-type {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.trade-rationale {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 16px;
+}
+
+.trade-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.trade-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.meta-label {
+    font-size: 11px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.meta-value {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.expected-return {
+    color: #86efac;
+}
+
+.trade-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.confidence-tag,
+.risk-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.risk-high {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.risk-medium {
+    background: rgba(234, 179, 8, 0.2);
+    color: #fde047;
+}
+
+.risk-low {
+    background: rgba(34, 197, 94, 0.2);
+    color: #86efac;
+}
+
+/* Disclaimer */
+.trading-disclaimer {
+    background: rgba(234, 179, 8, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.disclaimer-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.trading-disclaimer p {
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Footer */
+.trading-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.trading-footer span {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.refresh-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .trading-dashboard {
+        padding: 16px;
+    }
+
+    .header-title h2 {
+        font-size: 20px;
+    }
+
+    .conditions-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .trading-tabs {
+        flex-direction: column;
+    }
+
+    .period-selector {
+        justify-content: center;
+    }
+
+    .synopsis-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .trade-header {
+        flex-direction: column;
+    }
+
+    .trade-identity {
+        flex-wrap: wrap;
+    }
+
+    .trading-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* AI Analysis Tab */
+.ai-tab {
+    position: relative;
+}
+
+.ai-badge {
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    letter-spacing: 0.5px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* AI Analysis Section */
+.ai-analysis-section {
+    min-height: 300px;
+}
+
+.ai-loading {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.ai-error {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 16px;
+}
+
+.ai-error h3 {
+    font-size: 20px;
+    margin: 16px 0 8px;
+    color: #fca5a5;
+}
+
+.ai-error .error-details {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ai-error .error-provider {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-bottom: 16px;
+}
+
+.ai-error .error-fallback {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.ai-initial {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.1),
+        rgba(236, 72, 153, 0.1)
+    );
+    border-radius: 16px;
+    border: 1px dashed rgba(139, 92, 246, 0.3);
+}
+
+.ai-initial-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.ai-initial h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.ai-initial p {
+    font-size: 15px;
+    opacity: 0.8;
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.5;
+}
+
+.generate-ai-btn {
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.generate-ai-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+/* AI Not Configured */
+.ai-not-configured {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+}
+
+.ai-not-configured-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.ai-not-configured h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.ai-not-configured > p {
+    opacity: 0.8;
+    margin-bottom: 24px;
+}
+
+.fallback-advice {
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+    border-left: 4px solid #3b82f6;
+}
+
+.fallback-advice h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.fallback-advice ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fallback-advice li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.fallback-advice li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #3b82f6;
+}
+
+.ai-setup-instructions {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.ai-setup-instructions h4 {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.ai-setup-instructions p {
+    font-size: 13px;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.ai-setup-instructions code {
+    display: block;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    border-radius: 8px;
+    font-family: "Monaco", "Menlo", monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #86efac;
+}
+
+/* AI Content */
+.ai-content {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.ai-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ai-provider-badge {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.ai-timestamp {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.ai-analysis-content {
+    margin-bottom: 24px;
+}
+
+.ai-markdown {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.ai-markdown h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 24px 0 12px;
+    color: white;
+}
+
+.ai-markdown h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0 10px;
+    color: #e2e8f0;
+}
+
+.ai-markdown h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 16px 0 8px;
+    color: #cbd5e1;
+}
+
+.ai-markdown p {
+    margin: 12px 0;
+}
+
+.ai-markdown strong {
+    color: #fbbf24;
+}
+
+.ai-markdown em {
+    color: #a5b4fc;
+}
+
+.ai-markdown ul,
+.ai-markdown ol {
+    margin: 12px 0;
+    padding-left: 24px;
+}
+
+.ai-markdown li {
+    margin: 8px 0;
+}
+
+.ai-markdown code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Monaco", "Menlo", monospace;
+    font-size: 13px;
+    color: #86efac;
+}
+
+.ai-markdown pre {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+.ai-markdown pre code {
+    background: none;
+    padding: 0;
+}
+
+.ai-disclaimer {
+    background: rgba(234, 179, 8, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: 1px solid rgba(234, 179, 8, 0.2);
+    margin-bottom: 20px;
+}
+
+.ai-disclaimer p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.refresh-ai-btn {
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.refresh-ai-btn:hover {
+    background: rgba(139, 92, 246, 0.3);
+}

@@ -1,112 +1,181 @@
 .app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .app-header {
-  text-align: center;
-  padding: 40px 20px 20px;
+    text-align: center;
+    padding: 40px 20px 20px;
 }
 
 .app-title {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 8px;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
 .app-subtitle {
-  font-size: 16px;
-  opacity: 0.8;
+    font-size: 16px;
+    opacity: 0.8;
 }
 
 .app-main {
-  flex: 1;
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+    flex: 1;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .loading-container {
-  text-align: center;
-  padding: 60px 20px;
+    text-align: center;
+    padding: 60px 20px;
 }
 
 .loading-spinner-large {
-  width: 50px;
-  height: 50px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 20px;
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .error-container {
-  text-align: center;
-  padding: 40px 20px;
-  background: rgba(239, 68, 68, 0.2);
-  border-radius: 16px;
-  margin-bottom: 20px;
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(239, 68, 68, 0.2);
+    border-radius: 16px;
+    margin-bottom: 20px;
 }
 
 .welcome-container {
-  text-align: center;
-  padding: 80px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
+    text-align: center;
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
 }
 
 .welcome-icon {
-  font-size: 80px;
-  margin-bottom: 24px;
+    font-size: 80px;
+    margin-bottom: 24px;
 }
 
 .welcome-container h2 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 12px;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
 .welcome-container p {
-  font-size: 16px;
-  opacity: 0.8;
+    font-size: 16px;
+    opacity: 0.8;
 }
 
 .app-footer {
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 14px;
-  opacity: 0.7;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+    opacity: 0.7;
 }
 
 .app-footer a {
-  color: #ffffff;
-  text-decoration: underline;
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 .app-footer a:hover {
-  opacity: 0.8;
+    opacity: 0.8;
+}
+
+/* Trading Toggle */
+.trading-toggle-container {
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.2),
+        rgba(139, 92, 246, 0.2)
+    );
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    text-align: center;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.trading-toggle-btn {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.trading-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.trading-toggle-btn.active {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+}
+
+.trading-toggle-icon {
+    font-size: 20px;
+}
+
+.trading-toggle-text {
+    font-size: 15px;
+}
+
+.trading-toggle-badge {
+    background: rgba(255, 255, 255, 0.25);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+.trading-toggle-hint {
+    margin-top: 12px;
+    font-size: 13px;
+    opacity: 0.8;
 }
 
 @media (max-width: 600px) {
-  .app-header {
-    padding: 30px 15px 15px;
-  }
+    .app-header {
+        padding: 30px 15px 15px;
+    }
 
-  .app-title {
-    font-size: 28px;
-  }
+    .app-title {
+        font-size: 28px;
+    }
 
-  .app-main {
-    padding: 15px;
-  }
+    .app-main {
+        padding: 15px;
+    }
+
+    .trading-toggle-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
